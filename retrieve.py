@@ -13,7 +13,7 @@ import os
 # The URL for the Strava API endpoint to retrieve athlete activities
 
 url = 'https://www.strava.com/api/v3/athlete/activities'
-access_token = os.getenv("Access_Token")    
+access_token = os.getenv("Access_Token_viimeinen")    
 
 #http get "https://www.strava.com/api/v3/athlete" "Authorization: Bearer [[token]]"
 
