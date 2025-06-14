@@ -16,18 +16,18 @@
 #Metrit kilometreiksi, pyöristetään kahteen desimaalin tarkkuuteen
 def convert_distance_to_km(distance_meters):
     kilometreina = distance_meters / 1000
-    return round(kilometreina, 3)
+    return round(kilometreina, 2)
 def convert_moving_time_to_hms(moving_time_seconds):
     hours = moving_time_seconds // 3600
     minutes = (moving_time_seconds % 3600) // 60 #Tunneista ylijäänyt aika jaetaan 60, ja jakojäännös on minuutit
     seconds = moving_time_seconds % 60
-    return [hours, minutes, seconds]
+    return f"{hours:02}:{minutes:02}:{seconds:02}"     #:O2 tekee varmaksi että on kaksi kirjaitanta. Vasemmalle padding 0 tarvittaessa PÅitäisi olla 01:44:02
     
 def average_speed_min_per_km(distance_km, moving_time_seconds):
     sekunnit_per_kilsa = moving_time_seconds / distance_km
     minuutit = sekunnit_per_kilsa // 60  # Lasketaan minuutit jakamalla sekunnit 60:llä
     sekunnit = sekunnit_per_kilsa % 60  # Jäljelle jääneet sekunnit
-    return round(minuutit), round(sekunnit)  # Pyöristetään arvot kokonaisluvuiksi
+    return f"{round(minuutit):02}:{round(sekunnit):02}"  # Pyöristetään arvot kokonaisluvuiksi
 #Saan siis average pace kim/km muodossa, eli minuutit ja sekunnit per kilometri
 
 
@@ -39,6 +39,9 @@ def convert_kilojoules_to_calories(kilojoules):
 ##Tämä on oikea muunnos, mutta stravan api palauttaa väärät kilojoulet, tai ei ainakaan ole samat kuin 
 #kalorit arvot stravan sovelluksessa. Joten tämä on selvitettävä vielä.
 
+def maxspeed_miles_to_km(miles):
+    return miles * 1.609344
+
 
 #main metodi testaukseen
 if __name__ == "__main__":
@@ -48,10 +51,10 @@ if __name__ == "__main__":
         print(f"Distance in km: {distance_km} km")
         
         moving_time_hms = convert_moving_time_to_hms(6275)
-        print(f"Moving time: {moving_time_hms[0]} hours, {moving_time_hms[1]} minutes, {moving_time_hms[2]} seconds")
+        print(f"Moving time: {moving_time_hms}")
         
         average_speed = average_speed_min_per_km(distance_km, 6275)
-        print(f"Average speed: {average_speed[0]}:{average_speed[1]} Min/km")
+        print(f"Average speed: {average_speed} Min/km")
         ##    
     except Exception as e:
         print(e)
