@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+import pandas as pd
 from dotenv import load_dotenv
 
 ##In this file is the script for retrieving the data from the strava API
@@ -46,8 +47,29 @@ def get_latest_activity(token):
 def get_access_token():
     # This function is a placeholder for retrieving the access token.
     return os.getenv("Access_Token_final") 
-    
-    
+
+
+#Haetaan kaikki aktiviteeti tietyllä aikavälillä. Tämä pitää vielä muuttaa, jotta before/after menee parametreina
+def get_activities_by_time(token):
+    headers = {"Authorization": f"Bearer {token}"}
+    before = 1748725442 #UNIX TIME -> Nykyinen tarkoittaa enne kesäkuun 1.
+    after = 1746047042 #UNIX TIME -> Nykyinen tarkoittaa jälkeen toukokuun 1.
+    page = 1
+    per_page = 30
+    data = {"before" : before,
+            "after" : after,
+            "page" : 1,
+            "per_page" : 30
+            }
+    response = requests.get("https://www.strava.com/api/v3/athlete/activities?", headers=headers, params=data)
+    if response.status_code == 200:
+        data_json = response.json()
+        if data_json:
+            return data_json
+        else:
+            raise Exception("No activities found.")
+    else:
+        raise Exception(f"Error retrieving latest activity: {response.status_code} - {response.text}")
     
     
     
@@ -62,14 +84,19 @@ def get_access_token():
 ##Create main method to run the script
 if __name__ == "__main__":
     try:
-        athlete_info = get_athlete_info(access_token)
-        print(f"Athlete Name: {athlete_info['firstname']} {athlete_info['lastname']}")
-        with open("response_athelete.json", "w", encoding="utf-8") as f:
-            json.dump(athlete_info, f, indent=4)
+        #athlete_info = get_athlete_info(access_token)
+        #print(f"Athlete Name: {athlete_info['firstname']} {athlete_info['lastname']}")
+        #with open("response_athelete.json", "w", encoding="utf-8") as f:
+        #    json.dump(athlete_info, f, indent=4)
+        #
+        #latest_activity = get_latest_activity(access_token)
+        #print(f"Latest Activity: {latest_activity['name']}, Distance: {latest_activity['distance']} meters, Moving Time: {latest_activity['moving_time']} seconds")
+        #with open("response_activity.json", "w", encoding="utf-8") as f:
+        #    json.dump(latest_activity, f, indent=4)
+            
+        activities = get_activities_by_time(access_token)
         
-        latest_activity = get_latest_activity(access_token)
-        print(f"Latest Activity: {latest_activity['name']}, Distance: {latest_activity['distance']} meters, Moving Time: {latest_activity['moving_time']} seconds")
-        with open("response_activity.json", "w", encoding="utf-8") as f:
-            json.dump(latest_activity, f, indent=4)
+        #with open("response_activities.json", "w", encoding="utf-8") as f:
+        #    json.dump(activities, f, indent=4)
     except Exception as e:
         print(e)
