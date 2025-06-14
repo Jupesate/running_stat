@@ -1,7 +1,7 @@
-from retrieve import get_latest_activity, get_athlete_info, access_token
+from retrieve import get_latest_activity, get_athlete_info, get_access_token
 import pandas as pd
 
-
+## This script saves the latest Strava activity and athlete information to an Excel file.
 def save_to_excel(activity, athlete_info):
     # Create a DataFrame for the activity
     activity_data = {
@@ -27,6 +27,8 @@ def save_to_excel(activity, athlete_info):
     
     athlete_df = pd.DataFrame(athlete_data)
     
+    
+    
     # Save both DataFrames to an Excel file
     with pd.ExcelWriter('strava_activity.xlsx') as writer:
         activity_df.to_excel(writer, sheet_name='Activity', index=False)
@@ -36,7 +38,11 @@ def save_to_excel(activity, athlete_info):
 ##Create main method to run the script
 if __name__ == "__main__":
     try:
+        access_token = get_access_token()
+        print("Access token retrieved successfully.")
         athlete_info = get_athlete_info(access_token)
         latest_activity = get_latest_activity(access_token)
+        save_to_excel(latest_activity, athlete_info)
+        print("Data saved to strava_activity.xlsx successfully.")
     except Exception as e:
         print(e)

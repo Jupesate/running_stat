@@ -39,7 +39,10 @@ def get_latest_activity(token):
     else:
         raise Exception(f"Error retrieving latest activity: {response.status_code} - {response.text}")
     
-    
+#Scriptilla voidaan hakea tästä tiedostosta access token
+def get_access_token():
+    # This function is a placeholder for retrieving the access token.
+    return os.getenv("Access_Token_final") 
     
     
     
