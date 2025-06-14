@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+from dotenv import load_dotenv
 
 ##In this file is the script for retrieving the data from the strava API
 
@@ -13,7 +14,9 @@ import os
 # The URL for the Strava API endpoint to retrieve athlete activities
 
 url = 'https://www.strava.com/api/v3/athlete/activities'
-access_token = os.getenv("Access_Token_final")    
+load_dotenv() 
+access_token = os.getenv("Access_Token_final")
+   
 
 #http get "https://www.strava.com/api/v3/athlete" "Authorization: Bearer [[token]]"
 

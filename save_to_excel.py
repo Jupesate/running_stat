@@ -1,6 +1,7 @@
 from retrieve import get_latest_activity, get_athlete_info, get_access_token
 import pandas as pd
 
+
 ## This script saves the latest Strava activity and athlete information to an Excel file.
 def save_to_excel(activity, athlete_info):
     # Create a DataFrame for the activity
@@ -40,6 +41,7 @@ if __name__ == "__main__":
     try:
         access_token = get_access_token()
         print("Access token retrieved successfully.")
+        print(f"Access Token: {access_token}")
         athlete_info = get_athlete_info(access_token)
         latest_activity = get_latest_activity(access_token)
         save_to_excel(latest_activity, athlete_info)
