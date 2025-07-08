@@ -1,4 +1,4 @@
-
+import os
 
 
 
@@ -42,9 +42,26 @@ def convert_kilojoules_to_calories(kilojoules):
 def maxspeed_miles_to_km(miles):
     return miles * 1.609344
 
+##Tekee kansio rakenteen halutulle kuukaudelle/vuodelle
+#int yeay = 2025
+#int month = 7
+#Return kuukauden nimi. Tämä halutaan, että voidaan nimetä excel
+def get_file_path(month, year):
+    kuukaudet = ["Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu", "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"]
+    kuukauden_nimi = kuukaudet[month - 1]
+    save_path = os.path.join("Aktiviteetit", f"Vuosi_{year}", kuukauden_nimi)
+    #os.makedirs(save_path, exist_ok=True)
+    print(save_path)
+    return save_path, kuukauden_nimi
+
+
 
 #main metodi testaukseen
 if __name__ == "__main__":
+    
+    get_file_path(6,2025)
+    
+    '''
     try:
         # Test the conversion functions
         distance_km = convert_distance_to_km(16277.2)
@@ -58,3 +75,4 @@ if __name__ == "__main__":
         ##    
     except Exception as e:
         print(e)
+    '''

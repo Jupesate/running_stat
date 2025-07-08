@@ -1,6 +1,8 @@
 from retrieve import get_latest_activity, get_athlete_info, get_access_token, get_activities_by_time, change_timestamp_to_unix
-from methods import convert_distance_to_km, convert_moving_time_to_hms, average_speed_min_per_km, maxspeed_miles_to_km
+from methods import convert_distance_to_km, convert_moving_time_to_hms, average_speed_min_per_km, maxspeed_miles_to_km, get_file_path
 import pandas as pd
+import calendar
+import os
 
 
 ## This script saves the latest Strava activity and athlete information to an Excel file.
@@ -34,7 +36,7 @@ def save_to_excel(activity, athlete_info):
         athlete_df.to_excel(writer, sheet_name='Athlete Info', index=False)
         
 
-def save_multiple_activities_to_excel(activities):
+def save_multiple_activities_to_excel(activities, file_path, kuukauden_nimi):
     # Placeholder implementation to avoid syntax error
     all_activities_data = []
     for activity in activities:
@@ -52,13 +54,29 @@ def save_multiple_activities_to_excel(activities):
             activity_data['Average Heart rate (b/min)'] = activity['average_heartrate']
 
         all_activities_data.append(activity_data)
-     
-    all_activity_df = pd.DataFrame(all_activities_data)     
-    with pd.ExcelWriter('strava_activity.xlsx') as writer:
-        all_activity_df.to_excel(writer, sheet_name='Activities', index=False)
+    all_activity_df = pd.DataFrame(all_activities_data)
+    os.makedirs(file_path,exist_ok=True)     
+    with pd.ExcelWriter(f"{file_path}/Aktiviteetit_{kuukauden_nimi}.xlsx") as writer:
+        all_activity_df.to_excel(writer, sheet_name=f'Activities_{kuukauden_nimi}', index=False)
     print("Succesful printing")
 
-#
+##Tätä käytetään kun halutaan tietyn kuukauden aika.
+## int year = 2022, mikä vuosi
+## int month = 7, mikä kuukausi
+## string access_token
+def get_months_activity(access_token, month, year):
+    #Ensin pitää saada muutettua kuukausi muotoon "01/06/2025"
+    #Eli pitää osata etsiä netistä tai jollain importilla 
+    #Monta päivää kuukaudessa on ollut tiettynä vuotena.
+    number_of_days = calendar.monthrange(year,month)[1] ##Palauttaa viimeisen päivän nimen ja toisena numeron
+    print(number_of_days)
+    after = f"1/{month}/{year}" 
+    before = f"{number_of_days}/{month}/{year}"
+    activities = get_activities_by_time(access_token, before, after)
+    file_path, kuukauden_nimi = get_file_path(month, year)
+    save_multiple_activities_to_excel(activities, file_path, kuukauden_nimi)
+    #print(after + " " + before)
+    
         
 ##Create main method to run the script
 if __name__ == "__main__":
@@ -68,11 +86,11 @@ if __name__ == "__main__":
         access_token = get_access_token()
         print("Access token retrieved successfully.")
         print(f"Access Token: {access_token}")
-        activities = get_activities_by_time(access_token, before, after)
-        save_multiple_activities_to_excel(activities)
+        get_months_activity(access_token, 5,2025)
         #athlete_info = get_athlete_info(access_token)
         #latest_activity = get_latest_activity(access_token)
         #save_to_excel(latest_activity, athlete_info)
-        print("Data saved to strava_activity.xlsx successfully.")
+        print("Data saved successfully.")
     except Exception as e:
         print(e)
+    
