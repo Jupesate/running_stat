@@ -42,13 +42,15 @@ def save_multiple_activities_to_excel(activities):
         'Name': activity['name'],
         'Distance (km)': convert_distance_to_km(activity['distance']),
         'Moving Time (h:min)': convert_moving_time_to_hms(activity['moving_time']),
-        'Moving Time (seconds)': activity['moving_time'],
-        'Elapsed Time (s)': activity['elapsed_time'], ##Sinänsä turha tässä vian näkyy tauot + reeni. 
+        'Moving Time (seconds)': activity['moving_time'],       
         'Type': activity['type'],
         'Start Date': activity['start_date_local'],
         'Average Speed (min/km)': average_speed_min_per_km(convert_distance_to_km(activity['distance']),activity['moving_time']),
         'Max Speed (m/s)': maxspeed_miles_to_km(activity['max_speed'])
     }
+        if(activity['has_heartrate']):
+            activity_data['Average Heart rate (b/min)'] = activity['average_heartrate']
+
         all_activities_data.append(activity_data)
      
     all_activity_df = pd.DataFrame(all_activities_data)     

@@ -81,7 +81,7 @@ def get_activities_by_time(token, before, after):
 #Time stamp pitää olla muodossa "01/12/2011"    
 def change_timestamp_to_unix(timestamp):
     unixtime = (int) (time.mktime(datetime.datetime.strptime(timestamp, "%d/%m/%Y").timetuple()))
-    #print(unixtime)
+    print(unixtime)
     return unixtime
     
     
@@ -97,8 +97,10 @@ def change_timestamp_to_unix(timestamp):
 if __name__ == "__main__":
     before = 1748725442 #UNIX TIME -> Nykyinen tarkoittaa enne kesäkuun 1.
     after = 1746047042 #UNIX TIME -> Nykyinen tarkoittaa jälkeen toukokuun 1.
-    before = "1/6/2025"
+    before = "1/7/2025"
+    after = "1/6/2025" 
     unix_before = change_timestamp_to_unix(before)
+    unix_after = change_timestamp_to_unix(after)
     
     
     #try:
