@@ -1,4 +1,4 @@
-from retrieve import get_latest_activity, get_athlete_info, get_access_token, get_activities_by_time
+from retrieve import get_latest_activity, get_athlete_info, get_access_token, get_activities_by_time, change_timestamp_to_unix
 from methods import convert_distance_to_km, convert_moving_time_to_hms, average_speed_min_per_km, maxspeed_miles_to_km
 import pandas as pd
 
@@ -60,11 +60,13 @@ def save_multiple_activities_to_excel(activities):
         
 ##Create main method to run the script
 if __name__ == "__main__":
+    before = "1/7/2025"
+    after = "1/6/2025"
     try:
         access_token = get_access_token()
         print("Access token retrieved successfully.")
         print(f"Access Token: {access_token}")
-        activities = get_activities_by_time(access_token)
+        activities = get_activities_by_time(access_token, before, after)
         save_multiple_activities_to_excel(activities)
         #athlete_info = get_athlete_info(access_token)
         #latest_activity = get_latest_activity(access_token)

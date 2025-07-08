@@ -2,6 +2,8 @@ import requests
 import json
 import os
 import pandas as pd
+import datetime
+import time
 from dotenv import load_dotenv
 
 ##In this file is the script for retrieving the data from the strava API
@@ -50,10 +52,15 @@ def get_access_token():
 
 
 #Haetaan kaikki aktiviteeti tietyllä aikavälillä. Tämä pitää vielä muuttaa, jotta before/after menee parametreina
-def get_activities_by_time(token):
+# token = accesstoken hakua varten
+#before, mitä päivämäärää ennen juoksut on ollut
+#minkä päivämäärän jälkeen juoksut ollut
+#Tähän pitää vielä tehdä siten, että jos jompikumpi on tyhjä nii silloin ei ole rajoja. Joka tehdään sama funktio, johon tulee vain 2 argumenttia
+#tai sitten tarkistetaan tässä funktiossa
+def get_activities_by_time(token, before, after):  
     headers = {"Authorization": f"Bearer {token}"}
-    before = 1748725442 #UNIX TIME -> Nykyinen tarkoittaa enne kesäkuun 1.
-    after = 1746047042 #UNIX TIME -> Nykyinen tarkoittaa jälkeen toukokuun 1.
+    before = change_timestamp_to_unix(before) #UNIX TIME -> Nykyinen tarkoittaa enne kesäkuun 1.
+    after = change_timestamp_to_unix(after)  #UNIX TIME -> Nykyinen tarkoittaa jälkeen toukokuun 1.
     page = 1
     per_page = 30
     data = {"before" : before,
@@ -71,6 +78,11 @@ def get_activities_by_time(token):
     else:
         raise Exception(f"Error retrieving latest activity: {response.status_code} - {response.text}")
     
+#Time stamp pitää olla muodossa "01/12/2011"    
+def change_timestamp_to_unix(timestamp):
+    unixtime = (int) (time.mktime(datetime.datetime.strptime(timestamp, "%d/%m/%Y").timetuple()))
+    #print(unixtime)
+    return unixtime
     
     
 #headers = {"Authorization": f"Bearer {access_token}"}
@@ -83,7 +95,13 @@ def get_activities_by_time(token):
 
 ##Create main method to run the script
 if __name__ == "__main__":
-    try:
+    before = 1748725442 #UNIX TIME -> Nykyinen tarkoittaa enne kesäkuun 1.
+    after = 1746047042 #UNIX TIME -> Nykyinen tarkoittaa jälkeen toukokuun 1.
+    before = "1/6/2025"
+    unix_before = change_timestamp_to_unix(before)
+    
+    
+    #try:
         #athlete_info = get_athlete_info(access_token)
         #print(f"Athlete Name: {athlete_info['firstname']} {athlete_info['lastname']}")
         #with open("response_athelete.json", "w", encoding="utf-8") as f:
@@ -94,9 +112,9 @@ if __name__ == "__main__":
         #with open("response_activity.json", "w", encoding="utf-8") as f:
         #    json.dump(latest_activity, f, indent=4)
             
-        activities = get_activities_by_time(access_token)
+        #activities = get_activities_by_time(access_token)
         
         #with open("response_activities.json", "w", encoding="utf-8") as f:
         #    json.dump(activities, f, indent=4)
-    except Exception as e:
-        print(e)
+    #except Exception as e:
+     #   print(e)
