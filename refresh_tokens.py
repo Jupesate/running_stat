@@ -7,7 +7,7 @@ from dotenv import load_dotenv, set_key
 load_dotenv()
 access_token = os.getenv('Access_Token_final')
 refresh_token = os.getenv('Refresh_token_final')
-Client_ID = int(os.getenv("Client_ID"))
+Client_ID = int(os.getenv('Client_ID'))
 Client_Secret = os.getenv('Client_Secret')  # Keep as string
 
 def refresh_tokens():
@@ -41,7 +41,7 @@ def save_tokens_to_env(access, refresh):
 if __name__ == "__main__":
     try:
         access, refresh = refresh_tokens()
-        print(access + " ja " + refresh)
+        print("access token: " + access + " ja \n refresh token: " + refresh)
         save_tokens_to_env(access, refresh)
     except Exception as e:
         print(e)

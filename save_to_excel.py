@@ -80,13 +80,21 @@ def get_months_activity(access_token, month, year):
         
 ##Create main method to run the script
 if __name__ == "__main__":
-    before = "1/7/2025"
-    after = "1/6/2025"
+    #before = "1/7/2025"
+    #after = "1/6/2025"
+    while True:
+        month = int(input("Give month number of the month you wish to get activities (e.g 1,2,3...12)\n > "))
+        if(month <= 0 or month > 12):
+            print(f"Annoitte viallisen kuukauden {month}")
+            continue
+        break
+        
+    year = int(input("Give the months year (e.g 2023,2024...2042)\n >"))
     try:
         access_token = get_access_token()
         print("Access token retrieved successfully.")
         print(f"Access Token: {access_token}")
-        get_months_activity(access_token, 5,2025)
+        get_months_activity(access_token, month,year)
         #athlete_info = get_athlete_info(access_token)
         #latest_activity = get_latest_activity(access_token)
         #save_to_excel(latest_activity, athlete_info)
