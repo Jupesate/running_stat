@@ -16,6 +16,13 @@ writing logic is finalised. Next step would be to make some tests and clean up t
 look and documentation of the program. This will be done eventually, but for the next step I will move onto
 Power BI. If i get something interesting I will add a screenshot here.
 
+*9.7.2025 UPDATE**
+Made my first PowerBi report, this was just a quick one and this could be done in excel likewiese. Didnt have the time
+to really get into it and also noticed few problems which need to be addressed in what data I bring to the excel files.
+
+![juoksuraportti_eka](https://github.com/user-attachments/assets/db9aa897-f28c-456d-af94-7d3914ec9084)
+
+
 *Summary*
 
 --> Make files and structure pretty (tests?)
