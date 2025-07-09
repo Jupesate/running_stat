@@ -43,12 +43,11 @@ def save_multiple_activities_to_excel(activities, file_path, kuukauden_nimi):
         activity_data = {
         'Name': activity['name'],
         'Distance (km)': convert_distance_to_km(activity['distance']),
-        'Moving Time (h:min)': convert_moving_time_to_hms(activity['moving_time']),
-        'Moving Time (seconds)': activity['moving_time'],       
+        'Moving Time (h:min)': convert_moving_time_to_hms(activity['moving_time']),     
         'Type': activity['type'],
         'Start Date': activity['start_date_local'],
         'Average Speed (min/km)': average_speed_min_per_km(convert_distance_to_km(activity['distance']),activity['moving_time']),
-        'Max Speed (m/s)': maxspeed_miles_to_km(activity['max_speed'])
+        'Average Speed (m/s)': activity['average_speed'],
     }
         if(activity['has_heartrate']):
             activity_data['Average Heart rate (b/min)'] = activity['average_heartrate']

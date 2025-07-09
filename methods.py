@@ -49,7 +49,7 @@ def maxspeed_miles_to_km(miles):
 def get_file_path(month, year):
     kuukaudet = ["Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu", "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"]
     kuukauden_nimi = kuukaudet[month - 1]
-    save_path = os.path.join("Aktiviteetit", f"Vuosi_{year}", kuukauden_nimi)
+    save_path = os.path.join("Aktiviteetit", f"Vuosi_{year}")
     #os.makedirs(save_path, exist_ok=True)
     print(save_path)
     return save_path, kuukauden_nimi
