@@ -56,7 +56,7 @@ def save_multiple_activities_to_excel(activities, file_path, kuukauden_nimi):
     all_activity_df = pd.DataFrame(all_activities_data)
     os.makedirs(file_path,exist_ok=True)     
     with pd.ExcelWriter(f"{file_path}/Aktiviteetit_{kuukauden_nimi}.xlsx") as writer:
-        all_activity_df.to_excel(writer, sheet_name=f'Activities_{kuukauden_nimi}', index=False)
+        all_activity_df.to_excel(writer, sheet_name='activities', index=False)
     print("Succesful printing")
 
 ##Tätä käytetään kun halutaan tietyn kuukauden aika.
