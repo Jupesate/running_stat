@@ -31,6 +31,9 @@ Now I can move onto more challenging visuals since I have all the data in the fo
 
 <img width="1373" height="1003" alt="Erilaisia_mittareita_BI" src="https://github.com/user-attachments/assets/238d251e-b4df-4c04-bb3c-54f9c90d5af5" />
 
+*First Dashboard*
+
+<img width="1791" height="958" alt="Dashboard" src="https://github.com/user-attachments/assets/a9544f3b-9826-40e2-b751-9b9644d9e169" />
 
 
 *Summary*
