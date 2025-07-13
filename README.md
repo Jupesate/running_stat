@@ -27,6 +27,11 @@ Past few days I have been trying to get hang of Power BI, especially through mak
 
 Now I can move onto more challenging visuals since I have all the data in the form that I need and also have it in readable form.
 
+*New visuals*
+
+<img width="1373" height="1003" alt="Erilaisia_mittareita_BI" src="https://github.com/user-attachments/assets/238d251e-b4df-4c04-bb3c-54f9c90d5af5" />
+
+
 
 *Summary*
 
