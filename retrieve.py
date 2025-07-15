@@ -53,7 +53,7 @@ def get_access_token():
 
 #Haetaan kaikki aktiviteeti tietyllä aikavälillä. Tämä pitää vielä muuttaa, jotta before/after menee parametreina
 # token = accesstoken hakua varten
-#before, mitä päivämäärää ennen juoksut on ollut
+#before  --> Hakee UTC ajan perusteella eli JSON objektissa olevan start_date perusteella. 
 #minkä päivämäärän jälkeen juoksut ollut
 #Tähän pitää vielä tehdä siten, että jos jompikumpi on tyhjä nii silloin ei ole rajoja. Joka tehdään sama funktio, johon tulee vain 2 argumenttia
 #tai sitten tarkistetaan tässä funktiossa
@@ -80,7 +80,7 @@ def get_activities_by_time(token, before, after):
     
 #Time stamp pitää olla muodossa "01/12/2011"    
 def change_timestamp_to_unix(timestamp):
-    unixtime = (int) (time.mktime(datetime.datetime.strptime(timestamp, "%d/%m/%Y").timetuple()))
+    unixtime = (int) (time.mktime(datetime.datetime.strptime(timestamp, "%d/%m/%Y").timetuple())) #Vaihtaa GMT aikaan eli UTC, pitää lisätä +3h eli 10800s kesäaikana ja talviaikana 7200
     print(unixtime)
     return unixtime
     
@@ -95,8 +95,8 @@ def change_timestamp_to_unix(timestamp):
 
 ##Create main method to run the script
 if __name__ == "__main__":
-    before = 1748725442 #UNIX TIME -> Nykyinen tarkoittaa enne kesäkuun 1.
-    after = 1746047042 #UNIX TIME -> Nykyinen tarkoittaa jälkeen toukokuun 1.
+    #before = 1748725442 #UNIX TIME -> Nykyinen tarkoittaa enne kesäkuun 1.
+    #after = 1746047042 #UNIX TIME -> Nykyinen tarkoittaa jälkeen toukokuun 1.
     before = "1/7/2025"
     after = "1/6/2025" 
     unix_before = change_timestamp_to_unix(before)
