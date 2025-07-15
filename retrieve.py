@@ -1,7 +1,5 @@
 import requests
-import json
 import os
-import pandas as pd
 import datetime
 import time
 from dotenv import load_dotenv
@@ -15,13 +13,6 @@ from dotenv import load_dotenv
 #https://developers.strava.com/docs/reference/
 ##We will do this via HTTP request for convenience
 # The URL for the Strava API endpoint to retrieve athlete activities
-
-url = 'https://www.strava.com/api/v3/athlete/activities'
-load_dotenv() 
-access_token = os.getenv("Access_Token_final")
-   
-
-#http get "https://www.strava.com/api/v3/athlete" "Authorization: Bearer [[token]]"
 
 ##Retrieving athelete data
 def get_athlete_info(token):
@@ -45,9 +36,10 @@ def get_latest_activity(token):
     else:
         raise Exception(f"Error retrieving latest activity: {response.status_code} - {response.text}")
     
-#Scriptilla voidaan hakea tästä tiedostosta access token
+
+#Haetaan env tiedostosta access token
 def get_access_token():
-    # This function is a placeholder for retrieving the access token.
+    load_dotenv()
     return os.getenv("Access_Token_final") 
 
 

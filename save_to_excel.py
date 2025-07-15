@@ -1,11 +1,18 @@
-from retrieve import get_latest_activity, get_athlete_info, get_access_token, get_activities_by_time, change_timestamp_to_unix
+from retrieve import get_activities_by_time, get_access_token
 from methods import convert_distance_to_km, convert_moving_time_to_hms, average_speed_min_per_km, maxspeed_miles_to_km, get_file_path
 import pandas as pd
 import calendar
 import os
 
+#Save_to_excel.py
+#Author: Juho Tepponen, Github: Jupesate
+#Version: 15.7.2025
+#Tällä haetaan itse aktiviteetit exceliin, tämä hyödyntää muita python tiedostoja.
+#
 
-## This script saves the latest Strava activity and athlete information to an Excel file.
+
+## Tällä voidaan hakea viimeisin aktiviteetti exceliin, jos halutaan tutkailla
+#Enemmän debuggaamista varten vain
 def save_to_excel(activity, athlete_info):
     # Create a DataFrame for the activity
     activity_data = {
@@ -36,6 +43,10 @@ def save_to_excel(activity, athlete_info):
         athlete_df.to_excel(writer, sheet_name='Athlete Info', index=False)
         
 
+#Tämä on se mitä käytän päivittäin, jokaisen juoksun jälkeen jos haluan katsella Power Bi:tä
+#activities     === json muodossa oleva tiedosto, joka sisältää kuukauden aktiviteetit
+#file_path      === tiedostopolku mihin halutaan tiedot tallentaa
+#kuukauden_nimi === minkä kuukauden tiedot tallennetaan
 def save_multiple_activities_to_excel(activities, file_path, kuukauden_nimi):
     # Placeholder implementation to avoid syntax error
     all_activities_data = []
@@ -60,8 +71,8 @@ def save_multiple_activities_to_excel(activities, file_path, kuukauden_nimi):
     print("Succesful printing")
 
 ##Tätä käytetään kun halutaan tietyn kuukauden aika.
-## int year = 2022, mikä vuosi
-## int month = 7, mikä kuukausi
+## int year  === 2022, mikä vuosi
+## int month === 7, mikä kuukausi
 ## string access_token
 def get_months_activity(access_token, month, year):
     #Ensin pitää saada muutettua kuukausi muotoon "01/06/2025"
@@ -77,7 +88,7 @@ def get_months_activity(access_token, month, year):
     #print(after + " " + before)
     
         
-##Create main method to run the script
+##Ohjelman ajamiseen main
 if __name__ == "__main__":
     #before = "1/7/2025"
     #after = "1/6/2025"

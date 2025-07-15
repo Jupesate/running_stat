@@ -1,8 +1,16 @@
 import os
 
 
+#Method.py
+#Author: Juho Tepponen, Github: Jupesate
+#Version: 15.7.2025
+#Tietotyyppi muunnoksia, joita voidaan mahdollisesti hyödyntää ennenkö data siirretään exceliin
+#Tämä sinänsä vähän turha, koska dataa ei paljon tarvitse muuttaa, muutakuin kalorit.
+#Tämä kuitenkin hyvä olla jos tulee jotain muunnoksia mitä pitäisi tehdä
 
-#Nämä pitää muuttaa. Tehdään metodit näille
+
+
+#Tietoja mitä haetaan
 #      "name": "Lunch Run",         ###Halutaan nimi
 #      "distance": 16277.2,         ###Halutaan matka muutettuna kilometriksi
 #      "moving_time": 6275,         ### 1h, 44 min , 35s Pitää tehdä käännös tähän.
@@ -11,6 +19,7 @@ import os
 #      "average_speed": 2.594,         ##Tarvitaan tämä. 6:26/km on tässä. 
 #      "average_watts": 201.1,         ##Otetaan tämä
 #      "kilojoules": 1262.1,           ##Muutetaan kaloreiksi
+
 
 
 #Metrit kilometreiksi, pyöristetään kahteen desimaalin tarkkuuteen
