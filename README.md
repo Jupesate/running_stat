@@ -24,8 +24,8 @@ to really get into it and also noticed few problems which need to be addressed i
 Past few days I have been trying to get hang of Power BI, especially through making new measures which leverage the data that I am using. Some small problem we're the changing of average speed to min/km in python, reversed so I only take m/s and calculate the pace through that in Power BI through measures. Same goes for moving length of session, it was not a good idea to change it to more readable form from total seconds to hh:mm:ss. So reversed that also and calculated that through formatting and measures in Power BI. Overall valuable lessons learned on why the API gives values as they are and the end responsibility is on the user to change it to readable form after leveraging it. Below is quick update now when I can count the averages for everything.
 
 *24.7.2025 UPDATE*
-At this point I have everything that I need from the data which I am interested in. Ofcourse there is cadence and etc which can be interesting, but at this point because of work and summer studies I dont have anymore time I am leaving the code where it is. 
-I am really happy with the process and I use my power BI raport daily to check my runs and progress, so I am happy to say that these project was a success and is in weekly use. Below I will share are the visuals that I follow in my training. Firstly is the previous 2 months activities.
+At this point I have everything that I need from the data which I am interested in. Of course there is cadence and other metrics which can be interesting, but at this point because of work and summer studies I dont have anymore time so I am leaving the code where it is. 
+I am really happy with the process and I use my power BI report daily to check my runs and progress, so I am happy to say that this project was a success and is in weekly use. Below I will share are the visuals that I follow in my training. Firstly is the previous 2 months activities.
 
 <img width="1663" height="991" alt="tiettykk" src="https://github.com/user-attachments/assets/6ede8e92-511a-4537-953e-9c412d9770d1" />
 
