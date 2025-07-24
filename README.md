@@ -23,24 +23,35 @@ to really get into it and also noticed few problems which need to be addressed i
 *11.7.2025 UPDATE**
 Past few days I have been trying to get hang of Power BI, especially through making new measures which leverage the data that I am using. Some small problem we're the changing of average speed to min/km in python, reversed so I only take m/s and calculate the pace through that in Power BI through measures. Same goes for moving length of session, it was not a good idea to change it to more readable form from total seconds to hh:mm:ss. So reversed that also and calculated that through formatting and measures in Power BI. Overall valuable lessons learned on why the API gives values as they are and the end responsibility is on the user to change it to readable form after leveraging it. Below is quick update now when I can count the averages for everything.
 
-<img width="2004" height="1103" alt="image" src="https://github.com/user-attachments/assets/b0a141a4-cc06-4abb-a953-32110846df2c" />
+*24.7.2025 UPDATE*
+At this point I have everything that I need from the data which I am interested in. Ofcourse there is cadence and etc which can be interesting, but at this point because of work and summer studies I dont have anymore time I am leaving the code where it is. 
+I am really happy with the process and I use my power BI raport daily to check my runs and progress, so I am happy to say that these project was a success and is in weekly use. Below I will share are the visuals that I follow in my training. Firstly is the previous 2 months activities.
 
-Now I can move onto more challenging visuals since I have all the data in the form that I need and also have it in readable form.
+<img width="1663" height="991" alt="tiettykk" src="https://github.com/user-attachments/assets/6ede8e92-511a-4537-953e-9c412d9770d1" />
 
-*New visuals*
+Secondly is the over all activities.
 
-<img width="1373" height="1003" alt="Erilaisia_mittareita_BI" src="https://github.com/user-attachments/assets/238d251e-b4df-4c04-bb3c-54f9c90d5af5" />
+<img width="1899" height="1002" alt="kaikki" src="https://github.com/user-attachments/assets/1fef4fb0-edad-45f1-870f-59f058812727" />
 
-*First Dashboard*
+Then I have dashboard including many interesting visuals for me.
 
-<img width="1791" height="958" alt="Dashboard" src="https://github.com/user-attachments/assets/a9544f3b-9826-40e2-b751-9b9644d9e169" />
+<img width="1930" height="990" alt="useita_vis" src="https://github.com/user-attachments/assets/16551efc-385b-468b-9d48-770c05abe346" />
 
+Then I have currenth months runs with average heartrape and speed filtered to aerobic runs to follow my aerobic progress
+
+<img width="1905" height="1057" alt="line_chart" src="https://github.com/user-attachments/assets/f1fea97b-818f-4115-a516-23a9a8d1e7bb" />
+
+Lastly I have a dashboard where I can follow over all progress.
+
+<img width="1955" height="1066" alt="dashboard" src="https://github.com/user-attachments/assets/f8228e6d-81f9-49a3-9dae-6eb19ea7850a" />
+
+Feel free to contact if you want to use this or want help in creating these dashboards or help with strava API.
 
 *Summary*
 
---> Make files and structure pretty (tests?)
+--> Make files and structure pretty (tests?) --> Sort of, no tests yet
 --> Improve excel writing logic and process --> DONE
---> Import to power BI
+--> Import to power BI --> Done
 
 
 ## Plan
@@ -54,4 +65,4 @@ Now I can move onto more challenging visuals since I have all the data in the fo
 
 ## Final
 Learned about power BI and strava API. Learned some data analysis and something new about me as a runner.
-Maybe with these insights I can finally run maraton under 3:30 h
+Maybe with these insights I can finally run maraton under 3:30 h. Will update after 6.9.2025 Finlandia marathon
