@@ -77,15 +77,7 @@ def change_timestamp_to_unix(timestamp):
     return unixtime
     
     
-#headers = {"Authorization": f"Bearer {access_token}"}
-#response = requests.get("https://www.strava.com/api/v3/athlete/activities?per_page=1", headers=headers)
-#latest_activity = response.json()[0]
-#
-#print(latest_activity['name'], latest_activity['distance'], latest_activity['moving_time'])
-
-
-
-##Create main method to run the script
+#Pääohjelma testaukseen
 if __name__ == "__main__":
     #before = 1748725442 #UNIX TIME -> Nykyinen tarkoittaa enne kesäkuun 1.
     #after = 1746047042 #UNIX TIME -> Nykyinen tarkoittaa jälkeen toukokuun 1.

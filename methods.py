@@ -32,11 +32,14 @@ def convert_moving_time_to_hms(moving_time_seconds):
     seconds = moving_time_seconds % 60
     return f"{hours:02}:{minutes:02}:{seconds:02}"     #:O2 tekee varmaksi että on kaksi kirjaitanta. Vasemmalle padding 0 tarvittaessa PÅitäisi olla 01:44:02
     
+# Tilanne 30.7.2025
+#  Pyöristys johtaa tilanteeseen missä
+#
 def average_speed_min_per_km(distance_km, moving_time_seconds):
     sekunnit_per_kilsa = moving_time_seconds / distance_km
     minuutit = sekunnit_per_kilsa // 60  # Lasketaan minuutit jakamalla sekunnit 60:llä
     sekunnit = sekunnit_per_kilsa % 60  # Jäljelle jääneet sekunnit
-    return f"{round(minuutit):02}:{round(sekunnit):02}"  # Pyöristetään arvot kokonaisluvuiksi
+    return f"{int(minuutit):02}:{int(sekunnit):02}"  # Pyöristetään arvot kokonaisluvuiksi
 #Saan siis average pace kim/km muodossa, eli minuutit ja sekunnit per kilometri
 
 
@@ -68,7 +71,11 @@ def get_file_path(month, year):
 #main metodi testaukseen
 if __name__ == "__main__":
     
-    get_file_path(6,2025)
+    #get_file_path(6,2025)
+    testi_km = 10.2
+    testi_s = 3667
+    
+    print(average_speed_min_per_km(testi_km, testi_s))
     
     '''
     try:
