@@ -81,8 +81,8 @@ def change_timestamp_to_unix(timestamp):
 if __name__ == "__main__":
     #before = 1748725442 #UNIX TIME -> Nykyinen tarkoittaa enne kesäkuun 1.
     #after = 1746047042 #UNIX TIME -> Nykyinen tarkoittaa jälkeen toukokuun 1.
-    before = "1/7/2025"
-    after = "1/6/2025" 
+    before = "1/8/2025"
+    after = "1/7/2025" 
     unix_before = change_timestamp_to_unix(before)
     unix_after = change_timestamp_to_unix(after)
     

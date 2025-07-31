@@ -78,10 +78,17 @@ def get_months_activity(access_token, month, year):
     #Ensin pitää saada muutettua kuukausi muotoon "01/06/2025"
     #Eli pitää osata etsiä netistä tai jollain importilla 
     #Monta päivää kuukaudessa on ollut tiettynä vuotena.
-    number_of_days = calendar.monthrange(year,month)[1] ##Palauttaa viimeisen päivän nimen ja toisena numeron
-    print(number_of_days)
+    #number_of_days = calendar.monthrange(year,month)[1] ##Palauttaa viimeisen päivän nimen ja toisena numeron
+    #print(number_of_days)
+    
+    if(month == 12):
+        seuraava_kk = 1
+        year = year + 1
+    else:
+        seuraava_kk = month + 1
+    
     after = f"1/{month}/{year}" 
-    before = f"{number_of_days}/{month}/{year}"
+    before = f"{1}/{seuraava_kk}/{year}"
     activities = get_activities_by_time(access_token, before, after)
     file_path, kuukauden_nimi = get_file_path(month, year)
     save_multiple_activities_to_excel(activities, file_path, kuukauden_nimi)
