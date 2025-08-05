@@ -56,7 +56,7 @@ def save_multiple_activities_to_excel(activities, file_path, kuukauden_nimi):
         'Distance (km)': convert_distance_to_km(activity['distance']),
         'Moving Time (h:min)': (activity['moving_time']),#Ei muuteta, koska ei järkeä
         'Type': activity['type'],
-        'Start Date': activity['start_date_local'],
+        'Start Date': activity['start_date_local'].replace('Z', ''),
         'Average Speed (min/km)': average_speed_min_per_km(convert_distance_to_km(activity['distance']),activity['moving_time']),
         'Average Speed (m/s)': activity['average_speed'],
     }
