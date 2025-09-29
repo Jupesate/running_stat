@@ -25,7 +25,7 @@ import os
 #Metrit kilometreiksi, pyöristetään kahteen desimaalin tarkkuuteen
 def convert_distance_to_km(distance_meters):
     kilometreina = distance_meters / 1000
-    return round(kilometreina, 2)
+    return round(kilometreina, 4) #muutettu 2 -> 4
 def convert_moving_time_to_hms(moving_time_seconds):
     hours = moving_time_seconds // 3600
     minutes = (moving_time_seconds % 3600) // 60 #Tunneista ylijäänyt aika jaetaan 60, ja jakojäännös on minuutit
