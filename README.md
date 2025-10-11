@@ -27,23 +27,25 @@ Past few days I have been trying to get hang of Power BI, especially through mak
 At this point I have everything that I need from the data which I am interested in. Of course there is cadence and other metrics which can be interesting, but at this point because of work and summer studies I dont have anymore time so I am leaving the code where it is. 
 I am really happy with the process and I use my power BI report daily to check my runs and progress, so I am happy to say that this project was a success and is in weekly use. Below I will share are the visuals that I follow in my training. Firstly is the previous 2 months activities.
 
-<img width="1663" height="991" alt="tiettykk" src="https://github.com/user-attachments/assets/6ede8e92-511a-4537-953e-9c412d9770d1" />
+<img width="1902" height="1109" alt="tiettykk" src="https://github.com/user-attachments/assets/dfd3d349-979e-4908-8eb4-785a0dd4439e" />
 
 Secondly is the over all activities.
 
-<img width="1899" height="1002" alt="kaikki" src="https://github.com/user-attachments/assets/1fef4fb0-edad-45f1-870f-59f058812727" />
+<img width="1874" height="1042" alt="kaikki" src="https://github.com/user-attachments/assets/6773e051-43a4-4f10-8b6e-bdf7c6cc7721" />
 
 Then I have dashboard including many interesting visuals for me.
 
-<img width="1930" height="990" alt="useita_vis" src="https://github.com/user-attachments/assets/16551efc-385b-468b-9d48-770c05abe346" />
+<img width="1914" height="1007" alt="useita_vis" src="https://github.com/user-attachments/assets/b9a45ee5-82b0-41bc-9f7c-7bd6b636b0b4" />
 
-Then I have currenth months runs with average heartrape and speed filtered to aerobic runs to follow my aerobic progress
+Then I have currenth months runs with average heartrape and speed, to follow aerobic endurance. This can be easily filtered to show only aerobic or speed work
 
-<img width="1905" height="1057" alt="line_chart" src="https://github.com/user-attachments/assets/f1fea97b-818f-4115-a516-23a9a8d1e7bb" />
+<img width="1867" height="1052" alt="line_chart" src="https://github.com/user-attachments/assets/f01d529f-49d0-4fa6-8ed5-40ac390567c1" />
+
 
 Lastly I have a dashboard where I can follow over all progress.
 
-<img width="1955" height="1066" alt="dashboard" src="https://github.com/user-attachments/assets/f8228e6d-81f9-49a3-9dae-6eb19ea7850a" />
+<img width="1872" height="1020" alt="dashboard" src="https://github.com/user-attachments/assets/8a976553-efa2-41b1-8303-441cfdfbbe92" />
+
 
 Feel free to contact if you want to use this or want help in creating these dashboards or help with strava API.
 
@@ -66,3 +68,4 @@ Feel free to contact if you want to use this or want help in creating these dash
 ## Final
 Learned about power BI and strava API. Learned some data analysis and something new about me as a runner.
 Maybe with these insights I can finally run maraton under 3:30 h. Will update after 6.9.2025 Finlandia marathon
+*UPDATE - Got the sub 3:30 marathon with a finishing time of 3:28:32. I am still using this project to follow runs althought not so frequently since running is on a hiatus till next summer :D
