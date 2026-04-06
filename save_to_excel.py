@@ -70,6 +70,16 @@ def save_multiple_activities_to_excel(activities, file_path, kuukauden_nimi):
         all_activity_df.to_excel(writer, sheet_name='activities', index=False)
     print("Succesful printing")
 
+def change_last_month(year):
+    after = f"1/12/{year}" 
+    before = f"{1}/1/{year + 1}"
+    return after, before
+
+def change_time(month, year):
+    after = f"1/{month}/{year}" 
+    before = f"{1}/{month + 1}/{year}"
+    return after, before
+
 ##Tätä käytetään kun halutaan tietyn kuukauden aika.
 ## int year  === 2022, mikä vuosi
 ## int month === 7, mikä kuukausi
@@ -82,13 +92,12 @@ def get_months_activity(access_token, month, year):
     #print(number_of_days)
     
     if(month == 12):
-        seuraava_kk = 1
-        year = year + 1
+        after, before = change_last_month(year)
     else:
-        seuraava_kk = month + 1
+        after, before = change_time(month, year)
     
-    after = f"1/{month}/{year}" 
-    before = f"{1}/{seuraava_kk}/{year}"
+    #after = f"1/{month}/{year}" 
+    #before = f"{1}/{seuraava_kk}/{year}"
     activities = get_activities_by_time(access_token, before, after)
     file_path, kuukauden_nimi = get_file_path(month, year)
     save_multiple_activities_to_excel(activities, file_path, kuukauden_nimi)
